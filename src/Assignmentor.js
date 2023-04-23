@@ -32,7 +32,7 @@ export default function Assignmentor(){
 function Assigndata({assigning,deleteButton}){
 return(
   <div className="assignment-container">
-    <p>Assign Id no.: {assigning.assignid}</p>
+    <p>Assign Id no.: {assigning.id}</p>
     <p>Student Name: {assigning.studentname}</p>
     <p>Mentor Name: {assigning.mentorname}</p>
     {deleteButton}
