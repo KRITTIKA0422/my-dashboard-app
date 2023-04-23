@@ -8,7 +8,8 @@ import { API2 } from "./global";
 export default function Assignform(){ 
     const validate = values => {
         const errors = {};
-      
+        if (!values.assignid) 
+        errors.assignid = 'Field is Required';
         if (!values.mentorname) 
           errors.mentorname = 'Field is Required';
           if (!values.studentname) 
@@ -16,7 +17,7 @@ export default function Assignform(){
         return errors;
       };
      const formik=useFormik({ 
-        initialValues:{mentorname:"",studentname:""},
+        initialValues:{assignid:"",mentorname:"",studentname:""},
         validate,
         onSubmit:(assignDetails)=>{
             console.log("onSubmit",assignDetails);
@@ -37,6 +38,12 @@ export default function Assignform(){
         <div className="assignform_container">
         <h2 className="assignheader">Assigning Mentor to Student</h2>
         <form  className="assign_form" onSubmit={formik.handleSubmit}>
+        <TextField id="assignid" label="Assign ID no." variant="outlined"  onChange={formik.handleChange}
+        value={formik.values.assignid}
+        name="assignid" />
+       {formik.touched.assignid && formik.errors.assignid ? (
+         <div>{formik.errors.assignid}</div>
+       ) : null}
         <TextField id="mentorname" label="Mentor Name" variant="outlined"  onChange={formik.handleChange}
         value={formik.values.mentorname}
         name="mentorname" />

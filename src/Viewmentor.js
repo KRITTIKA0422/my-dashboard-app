@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import { useEffect } from "react";
-import { API } from "./global";
+import { API2 } from "./global";
 import { Button } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import "./Viewmentor.css";
@@ -11,7 +11,7 @@ export default function Viewmentor(){
 
     const[mentors,setMentors]=useState([]);
     const getMentors= ()=>{
-     fetch(`${API}/mentors`,{
+     fetch(`${API2}/mentors`,{
        method:"GET",
      })
      .then((data)=>data.json())
@@ -20,7 +20,7 @@ export default function Viewmentor(){
     useEffect(()=> getMentors(),[]);
  
     const deletementor=(id)=>{
-   fetch(`${API}/mentors/${id}`,{
+   fetch(`${API2}/mentors/${id}`,{
        method:'DELETE',
    }).then((data)=>data.json())
    .then(()=>getMentors());
@@ -38,6 +38,7 @@ return(
   <div className="mentor-container">
     <img src={mentor.img} alt={mentor.name} className="mentor-poster"></img>
     <p className="mentor-name"><b>Mentor Name: </b>{mentor.name}</p>
+    <p className="mentor-id"><b>ID: </b>{mentor.id}</p>
     <p className="mentor-specialist"><b>Subject Specialisation: </b>{mentor.specialist}</p>
     <p  className="mentor-availability"><b>Availability: </b>{mentor.availability}</p>
     <p className="mentor-duration"><b>Period of Contract (in months): </b>{mentor.duration}</p>

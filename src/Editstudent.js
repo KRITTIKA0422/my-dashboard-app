@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from 'formik';
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
-import { API } from './global';
+import { API2 } from './global';
 import "./Editstudent.css";
 
 export default function Editstudent({eid}){
@@ -13,12 +13,12 @@ export default function Editstudent({eid}){
             console.log("onSubmit",editstudentDetails);
             alert(JSON.stringify(editstudentDetails, null, 2));
             console.log(eid);
-            fetch(`${API}/students/${eid}`,{
+            fetch(`${API2}/students/${eid}`,{
                 method:'UPDATE',
                 headers:{
                     'Content-type':'application/json',
                         "Access-Control-Allow-Headers" : "Content-Type",
-                        "Access-Control-Allow-Origin": `${API}/students`,
+                        "Access-Control-Allow-Origin": `${API2}/students`,
                         "Access-Control-Allow-Methods": "UPDATE,POST,GET"
                 },
                 body: JSON.stringify(editstudentDetails),
@@ -34,6 +34,10 @@ export default function Editstudent({eid}){
         <TextField id="name" label="Student Name" variant="outlined"  onChange={formik.handleChange}
         value={formik.values.name}
         name="name" />
+        <TextField id="id" label="Student ID No." variant="outlined"  
+        onChange={formik.handleChange} 
+        value={formik.values.id}
+        name="id" />
         <TextField id="course" label="Course Name" variant="outlined"  
         onChange={formik.handleChange} 
         value={formik.values.course}

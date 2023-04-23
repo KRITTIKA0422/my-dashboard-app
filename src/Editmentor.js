@@ -2,23 +2,23 @@ import React from "react";
 import { useFormik } from 'formik';
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
-import { API } from './global';
+import { API2 } from './global';
 import "./Editmentor.css";
 
 export default function Editmentor({eid}){
      
      const formik=useFormik({ 
-        initialValues:{name:"",specialist:"",availability:"",duration:"",img:""},
+        initialValues:{name:"",id:"",specialist:"",availability:"",duration:"",img:""},
         onSubmit:(editmentorDetails)=>{
             console.log("onSubmit",editmentorDetails);
             alert(JSON.stringify(editmentorDetails, null, 2));
             console.log(eid);
-            fetch(`${API}/mentors/${eid}`,{
+            fetch(`${API2}/mentors/${eid}`,{
                 method:'UPDATE',
                 headers:{
                     'Content-type':'application/json',
                         "Access-Control-Allow-Headers" : "Content-Type",
-                        "Access-Control-Allow-Origin": `${API}/mentors`,
+                        "Access-Control-Allow-Origin": `${API2}/mentors`,
                         "Access-Control-Allow-Methods": "UPDATE,POST,GET"
                 },
                 body: JSON.stringify(editmentorDetails),
@@ -34,6 +34,10 @@ export default function Editmentor({eid}){
         <TextField id="name" label="Mentor Name" variant="outlined"  onChange={formik.handleChange}
         value={formik.values.name}
         name="name" />
+          <TextField id="id" label="Mentor ID no." variant="outlined"  
+        onChange={formik.handleChange} 
+        value={formik.values.id}
+        name="id" />
         <TextField id="specialist" label="Subject Specialisation" variant="outlined"  
         onChange={formik.handleChange} 
         value={formik.values.specialist}

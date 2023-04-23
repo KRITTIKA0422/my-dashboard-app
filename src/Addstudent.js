@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from 'formik';
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
-import { API } from './global';
+import { API2 } from './global';
 import "./Addstudent.css";
 
 export default function Addstudent(){
@@ -11,6 +11,8 @@ export default function Addstudent(){
       
         if (!values.name) 
           errors.name = 'Field is Required';
+          if (!values.id) 
+          errors.id = 'Field is Required';
           if (!values.course) 
           errors.course = 'Field is Required';
           if (!values.batch) 
@@ -24,13 +26,13 @@ export default function Addstudent(){
         return errors;
       };
      const formik=useFormik({ 
-        initialValues:{name:"",course:"",batch:"",join:"",duration:"",img:""},
+        initialValues:{name:"",id:"",course:"",batch:"",join:"",duration:"",img:""},
         validate,
         onSubmit:(studentDetails)=>{
             console.log("onSubmit",studentDetails);
             alert(JSON.stringify(studentDetails, null, 2));
             
-            fetch(`${API}/students`,{
+            fetch(`${API2}/students`,{
                 method:'POST',
                 headers:{
                     'Content-type':'application/json'
@@ -51,6 +53,13 @@ export default function Addstudent(){
         name="name" />
        {formik.touched.name && formik.errors.name ? (
          <div>{formik.errors.name}</div>
+       ) : null}
+       <TextField id="id" label="Student ID No." variant="outlined"  
+        onChange={formik.handleChange} 
+        value={formik.values.id}
+        name="id" />
+        {formik.touched.id && formik.errors.id ? (
+         <div>{formik.errors.id}</div>
        ) : null}
         <TextField id="course" label="Course Name" variant="outlined"  
         onChange={formik.handleChange} 

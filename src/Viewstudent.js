@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import { useEffect } from "react";
-import { API } from "./global";
+import { API2 } from "./global";
 import { Button } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 import "./Viewstudent.css";
@@ -11,7 +11,7 @@ export default function Viewstudent(){
 
     const[students,setStudents]=useState([]);
     const getStudents= ()=>{
-     fetch(`${API}/students`,{
+     fetch(`${API2}/students`,{
        method:"GET",
      })
      .then((data)=>data.json())
@@ -20,7 +20,7 @@ export default function Viewstudent(){
     useEffect(()=> getStudents(),[]);
  
     const deletestudent=(id)=>{
-   fetch(`${API}/students/${id}`,{
+   fetch(`${API2}/students/${id}`,{
        method:'DELETE',
    }).then((data)=>data.json())
    .then(()=>getStudents());
@@ -38,6 +38,7 @@ return(
   <div className="student-container">
     <img src={student.img} alt={student.name} className="student-poster"></img>
     <p className="student-name"><b>Student Name: </b>{student.name}</p>
+    <p  className="student-id"><b>ID: </b>{student.id}</p>
     <p  className="student-course"><b>Course: </b>{student.course}</p>
     <p className="student-batch"><b>Batch ID: </b>{student.batch}</p>
     <p className="student-join"><b>Joining Date: </b>{student.join}</p>

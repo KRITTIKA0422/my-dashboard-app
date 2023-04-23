@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from 'formik';
 import { Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
-import { API } from './global';
+import { API2 } from './global';
 import "./Addmentor.css";
 
 export default function Addmentor(){
@@ -11,6 +11,8 @@ export default function Addmentor(){
       
         if (!values.name) 
           errors.name = 'Field is Required';
+          if (!values.id) 
+          errors.id = 'Field is Required';
           if (!values.specialist) 
           errors.specialist = 'Field is Required';
           if (!values.availability) 
@@ -22,13 +24,13 @@ export default function Addmentor(){
         return errors;
       };
      const formik=useFormik({ 
-        initialValues:{name:"",specialist:"",availability:"",duration:"",img:""},
+        initialValues:{name:"",id:"",specialist:"",availability:"",duration:"",img:""},
         validate,
         onSubmit:(mentorDetails)=>{
             console.log("onSubmit",mentorDetails);
             alert(JSON.stringify(mentorDetails, null, 2));
             
-            fetch(`${API}/mentors`,{
+            fetch(`${API2}/mentors`,{
                 method:'POST',
                 headers:{
                     'Content-type':'application/json'
@@ -49,6 +51,13 @@ export default function Addmentor(){
         name="name" />
        {formik.touched.name && formik.errors.name ? (
          <div>{formik.errors.name}</div>
+       ) : null}
+       <TextField id="id" label="Mentor ID no." variant="outlined"  
+        onChange={formik.handleChange} 
+        value={formik.values.id}
+        name="id" />
+        {formik.touched.id && formik.errors.id ? (
+         <div>{formik.errors.id}</div>
        ) : null}
         <TextField id="specialist" label="Subject Specialisation" variant="outlined"  
         onChange={formik.handleChange} 

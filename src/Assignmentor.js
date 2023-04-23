@@ -26,6 +26,7 @@ export default function Assignmentor(){
 function Assigndata({assigning}){
 return(
   <div className="assignment-container">
+    <p>Assign Id no.: {assigning.assignid}</p>
     <p>Student Name: {assigning.studentname}</p>
     <p>Mentor Name: {assigning.mentorname}</p>
   </div>
