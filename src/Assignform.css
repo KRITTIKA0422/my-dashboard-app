@@ -1,0 +1,19 @@
+.assign_form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+   }
+   .assignform_container{
+      padding-top: 10px;
+      margin-top: 10px;
+      margin-left: 25vw;
+   }
+   .assignheader{
+       color:gray;
+       margin-left:15vw;
+       margin-bottom: 3vh;
+   }
+   .assignbutton{
+    margin-bottom: 10px;
+   }

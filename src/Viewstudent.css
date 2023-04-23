@@ -1,0 +1,32 @@
+
+  .student-container{
+    width:340px;
+    margin: 2vw; 
+    border: solid;
+    border-width: 3px;
+    border-color:cadetblue;
+    border-radius: 5px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+  }
+  .student-poster{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .student-name{
+    font-size: 18px;
+    margin: 0;
+  }
+  .student-batch, .student-join, .student-duration {
+    margin-top: 0;
+  }
+ 
+  .student-list-container{
+    display: flex;
+    flex-direction: row;
+    align-items: space-evenly;
+    flex-wrap: wrap;   
+  }
+
+  

@@ -1,0 +1,19 @@
+.student_form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+   }
+   .studentform_container{
+      padding-top: 10px;
+      margin-top: 10px;
+      margin-left: 25vw;
+   }
+   .studentheader{
+       color:gray;
+       margin-left:15vw;
+       margin-bottom: 3vh;
+   }
+   .buttonstudent{
+    margin-bottom: 10px;
+   }

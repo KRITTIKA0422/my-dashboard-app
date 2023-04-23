@@ -1,0 +1,19 @@
+.imageflex{
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: sticky;
+}
+.imageflex img{
+    height:300px;
+    width: 400px;
+
+}
+.title{
+    margin-left:25vw ;
+    margin-top: 10vh;
+    font-size: 45px;
+    font-weight: bold;
+    color:rgb(56, 120, 238);
+}

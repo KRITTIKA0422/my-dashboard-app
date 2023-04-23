@@ -1,0 +1,19 @@
+.mentor_form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50vw;
+   }
+   .mentorform_container{
+      padding-top: 10px;
+      margin-top: 10px;
+      margin-left: 25vw;
+   }
+   .mentorheader{
+       color:gray;
+       margin-left:15vw;
+       margin-bottom: 3vh;
+   }
+   .buttonmentor{
+    margin-bottom: 10px;
+   }

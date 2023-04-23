@@ -1,0 +1,25 @@
+.assignment-container{
+    width:300px;
+    margin: 2vw;   
+    background-color: lightblue;
+    border: solid;
+    border-width: 3px;
+    border-color:cadetblue;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.assignment-list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    align-items: center;
+   
+}
